@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<br>
+<div class="mb-3">
+    <h4 style="text-align: center;">User Detail !</h4>
+    <div class="content border rounded py-2">
+     
+     <div class="container">
+       <div class="row justify-content-center">
+         <div class="col-md-6"  >
+          <tbody >
+<tr>
+    <td> <h6> Name :</h6> </td>
+    <td>{{userData.username}}</td>
+</tr>
+<tr>
+    <td> <h6> Email :</h6> </td>
+    <td>{{userData.email}}</td>
+</tr>
+
+<tr>
+    <td> <h6>      Adress  :</h6> </td>
+    <td>{{userData.adress}}</td>
+</tr>
+
+<tr>
+    <td> <h6> Phone :</h6> </td>
+    <td>{{userData.phone}}</td>
+</tr>
+
+
+          </tbody>
+
+       
+         </div>
+       </div>
+     </div>
+ 
+   </div>
+   <div style="text-align: center;">
+ 
+   <input type="submit" style="color: white;" [routerLink]="['/updateUser',userId]"  class="btn btn-warning" value="Update User" ></div>
+<br>
+   <div style="text-align: center;">
+ 
+    <input type="submit" [routerLink]="[userId]" (click)=" deleteUser(userId)"    class="btn btn-danger" value="Delete User" ></div>
+ </div>
+ 

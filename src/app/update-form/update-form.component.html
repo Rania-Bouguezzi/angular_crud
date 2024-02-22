@@ -1,0 +1,66 @@
+
+<app-navbar></app-navbar>
+
+<br>
+<br>
+  <div class="content">
+    
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              
+              <h3 class="heading mb-4" style="text-align:center">Let's update a user !</h3>
+              <p><img src="assets/images/user_up.svg" alt="Image" class="img-fluid"></p>
+
+
+            </div>
+            <div class="col-md-6">
+              
+              <form class="mb-5" [formGroup]="myFormUp" (ngSubmit)="update()">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" formControlName="username" id="name"   placeholder="Your name">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                      <input type="email" class="form-control"  name="email" formControlName="email" id="email"  placeholder="Your Email"   >
+                      <div *ngIf="myFormUp.controls['email'].errors?.['email']" class="alert alert-danger" role="alert">
+                         This is not an email !
+                        </div>
+                  </div>
+                  </div><br>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" formControlName="adress" id="adress" placeholder="Adress">
+                  </div>
+                </div> <br>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Phone">
+
+                  </div>
+                </div>  <br>
+                <div class="row">
+                  <div class="col-12">
+                    <input type="submit" [disabled]="myFormUp.invalid" value="Save Modification" style="color: BA68C8;" class="btn btn-dark rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                  </div>
+                </div>
+              </form>
+
+              <div [ngClass]="{'alert-success': message ==='User Updated!', 'alert-error': message === 'User Does Not Updated !', 'alert-danger': message==='Formulaire Invalid !'}" *ngIf="message">{{ message }}</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    
+    

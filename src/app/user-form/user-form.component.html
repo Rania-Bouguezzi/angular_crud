@@ -1,0 +1,79 @@
+
+  
+<app-navbar ></app-navbar>
+<br>
+<br>
+  <div class="content">
+    
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              
+              <h3 class="heading mb-4">Let's add a new user to our list !</h3>
+              <p></p>
+
+              <p><img src="assets/images/undraw-contact.svg" alt="Image" class="img-fluid"></p>
+
+
+            </div>
+            <div class="col-md-6">
+              
+              <form  class="mb-5" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" formControlName="username"   id="name"  placeholder="Your Name">
+           
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="email" class="form-control"  name="email" formControlName="email" id="email"  placeholder="Your Email"   >
+                    <div *ngIf="myForm.controls['email'].errors?.['email']" class="alert alert-danger" role="alert">
+                       This is not an email !
+                      </div>
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" name="adress" formControlName="adress" id="subject"  placeholder="Your Adress" >
+            
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <input type="text" class="form-control"  name="phone" formControlName="phone" id="subject" placeholder="Your Phone" >
+                  
+                    </div>
+                </div> 
+                <br> 
+                <div class="row">
+                  <div class="col-12">
+                    <input  type="submit" [disabled]="myForm.invalid"  value="Add User" class="btn btn-dark rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                  </div>
+                </div>
+              </form>
+              <div *ngIf="emptymessage" class="alert alert-danger" role="alert">
+                Veuillez remplir tous les champs.
+              </div>
+              <div [ngClass]="{'alert-success': message === 'User Created !', 'alert-error': message === 'User Does not Created !'}" *ngIf="message">{{ message }}</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    
+
+
